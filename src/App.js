@@ -10,6 +10,7 @@ import Teachers from './components/Teachers.js'
 import Courses from './components/Courses.js'
 import CourseContainer from './components/courses/CourseContainer.js'
 import NotFound from './components/NotFound.js'
+import Featured from './components/Featured.js'
 
 const App = () => {
   return (
@@ -18,7 +19,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="teachers" element={<Teachers />} />
+        <Route path="teachers">
+          <Route index element={<Teachers />} />
+          <Route path=":topic/:name" element={<Featured />} />
+        </Route>
         <Route path="courses" element={<Courses />}>
           <Route index element={<Navigate replace={true} to="html" />} />
           <Route path="html" element={<CourseContainer data={HTMLCourses} />} />
