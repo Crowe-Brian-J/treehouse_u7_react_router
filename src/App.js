@@ -10,6 +10,7 @@ import Courses from './components/Courses.js'
 import HTML from './components/courses/HTML'
 import CSS from './components/courses/CSS'
 import JavaScript from './components/courses/JavaScript'
+import NotFound from './components/NotFound.js'
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="css" element={<CSS />} />
           <Route path="javascript" element={<JavaScript />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
   )
